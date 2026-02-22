@@ -188,10 +188,6 @@ This will automatically run code quality checks before each commit.
 **Ioannis**
 - Email: qmichel05@hotmail.com
 
-## 📄 License
-
-[Specify your license here]
-
 ## 🙏 Acknowledgments
 
 - Dr. Ignaz Semmelweis for his groundbreaking work in medical hygiene
