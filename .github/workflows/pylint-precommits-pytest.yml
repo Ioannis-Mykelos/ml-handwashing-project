@@ -128,11 +128,14 @@ jobs:
       - name: Install pytest
         run: pip install pytest==7.4.3
 
+      - name: Install pytest-cov
+        run: pip install pytest-cov
+
       - name: Run pytest and generate coverage report
         id: pytest
         run: |
           set +e
-          output=$(pytest --junitxml=pytest.xml --tb=short --verbose $(git ls-files 'test/test_*.py')> err.log)
+          output=$(pytest --junitxml=pytest.xml --tb=short --verbose --cov=. --cov-report=term-missing $(git ls-files 'test/test_*.py') 2>err.log | tee pytest-coverage.txt)
           state=$(echo $?)
           err_output=$(cat err.log)
           output="${output}\n${err_output}"
@@ -149,6 +152,7 @@ jobs:
         with:
           junitxml-path: ./pytest.xml
           create-new-comment: True
+          pytest-coverage-path: ./pytest-coverage.txt
 
       - name: Update Pull Request
         uses: actions/github-script@v6
