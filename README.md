@@ -78,7 +78,11 @@ ml-handwashing-project/
 │   └── workflows/
 │       └── pylint-precommits-pytest.yml    # CI/CD pipeline
 ├── src/
-│   └── Handwashing project.py              # Main analysis script
+│   ├── config.py                           # Project configuration and constants
+│   ├── data_loading.py                     # Data loading utilities
+│   ├── analysis.py                         # Core analysis and statistics
+│   ├── plotting.py                         # Plotting utilities
+│   └── handwashing.py                      # Main analysis entry script
 ├── test/
 │   ├── conftest.py                         # Pytest fixtures
 │   └── test_one.py                         # Test suite
@@ -100,10 +104,10 @@ ml-handwashing-project/
 
 2. **Run the main analysis script:**
    ```bash
-   python src/"Handwashing project.py"
+   python src/handwashing.py
    ```
 
-   Note: The script contains Jupyter notebook-style code. For production use, consider refactoring into functions.
+   The script uses the modular functions in `config.py`, `data_loading.py`, `analysis.py`, and `plotting.py` to run the full analysis and display plots.
 
 ### Running Tests
 
