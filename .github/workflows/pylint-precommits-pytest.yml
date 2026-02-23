@@ -119,6 +119,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install pandas
+        run: pip install pandas==2.2.3
+
       - name: Upgrade pip
         run: pip install --upgrade pip
 
